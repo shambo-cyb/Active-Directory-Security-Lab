@@ -28,11 +28,59 @@ I have performed an administrative action to relocate the "WIN10" computer objec
 
 I am now configuring the properties of the Guest.Sales user account within the Sales/Users organizational unit of the Banerjee.com domain. This account is specifically designated for temporary agents and is configured to enforce a limited service period. As demonstrated in the configuration pane, I have set the account to automatically expire at the end of August 29, 2025, which corresponds to a seven-day operational period. This action is a critical part of my access control policy for temporary personnel, ensuring that their credentials are automatically revoked. Additionally, the "User must change password at next logon" option is enabled to enforce an immediate security measure.
 
-## I have created a new password policy in the password container that has passwords with no complexities, esp for the guest sales personnels to be used on the fly
+### I have created a new password policy in the password container that has passwords with no complexities, esp for the guest sales personnels to be used on the fly
 <img width="600" height="870" alt="5" src="https://github.com/user-attachments/assets/487c1639-126e-423f-91ee-9ab8b4925d83" />
 
 I am currently configuring a Fine-Grained Password Policy (FGPP) specifically for the temporary guest sales accounts.
 - The policy is named "Password Without Complexity" and is configured with a minimum password length of just 3 characters, deliberately waiving standard complexity requirements.
 - I have set the policy to enforce a robust password history of 24, preventing the reuse of recent passwords.
 - The account lockout policy has been left unconfigured, so there is no limit on the number of failed logon attempts before an account is locked out.
+
+### A Guest Sales account has been assigned to the password policy 
+
+<img width="600" height="853" alt="6" src="https://github.com/user-attachments/assets/86a76260-3541-4887-b56f-617c55623ea9" />
+
+This means that a guest agent would likely have access with a complex password but most importantly their account is managed with little to no permissions 
+
+### Logging on with the Guest Sales Account 
+
+<img width="600" height="951" alt="7" src="https://github.com/user-attachments/assets/f2eceb31-0753-4dc7-9aa0-2767a17d3159" />
+
+As the passoword without complexity is designed with simplicity in mind it just requires the user to create a very basic password only comprising of 3 digits. The user is created in such a way in the organizational unit that they would have to 
+change the password the first time they login. The intial password is generally provided by the IT administrator and the policy forces them to change it the first time they login. 
+
+### Now I have created a new password policy in the password container that has passwords with complexities, this is usually for the employees
+
+<img width="600" height="907" alt="8" src="https://github.com/user-attachments/assets/7c9ebae3-01a2-44f2-b02d-85f431c0546d" />
+
+This policy enforces strict password rules and a robust account lockout policy to prevent unauthorized access and brute-force attacks.
+- Policy Name: "Password with Complexity"
+- Precedence: Set this to a lower number than other policies that apply to your administrators. A lower number (e.g., 1) gives it a higher priority.
+- Minimum Password Length: Set this to a higher value, like 10 characters, as a baseline for a strong password.
+- Password must meet complexity requirements: Enabled. This forces users to create passwords that include characters from at least three of the following four categories:
+- Uppercase letters (A-Z)
+- Lowercase letters (a-z)
+- Numbers (0-9)
+- Special characters (e.g., !, @, #, $, %, ^, &, *)
+- Enforce password history: Set this to a high number, like 24. This prevents users from reusing any of their last 24 passwords, forcing them to create new, unique passwords with each change.
+
+### Enforcement of the rule 
+<img width="600" height="948" alt="10" src="https://github.com/user-attachments/assets/490d5508-c940-44f8-8d43-80774d0ad721" />
+
+As it is visible a simple password wouldnt work it has to satisfy all the conditions mentioned in the policy
+
+### Account Lockout 
+
+<img width="600" height="951" alt="11" src="https://github.com/user-attachments/assets/1a25f422-379a-477d-b5ab-0fa574dccadf" />
+
+
+That account lockout message on the login screen is a direct result of the "Password with Complexity" policy. It looks like "Hulk Hogan" tried to log in unsuccessfully too many times and has been temporarily locked out. This security feature is a great way to prevent brute-force attacks.
+- This is a great security measure to stop brute-force attacks
+- There is no duration of the lockout period instead I have configured it such a way that an Administrator has to manually unlock an account
+
+### Unlocking the account 
+
+<img width="600" height="910" alt="12" src="https://github.com/user-attachments/assets/5821d17b-6df5-4149-a427-402d2e56250f" />
+
+The account has been unlocked by the IT Admin
 
