@@ -82,5 +82,23 @@ That account lockout message on the login screen is a direct result of the "Pass
 
 <img width="600" height="910" alt="12" src="https://github.com/user-attachments/assets/5821d17b-6df5-4149-a427-402d2e56250f" />
 
-The account has been unlocked by the IT Admin
+The grayed-out "Unlock account" option indicates it's locked due to too many failed login attempts, as specified in the "Password with Complexity" policy. Simply check the box to re-enable the account.
+- The account is locked because of too many failed password attempts.
+- This is a quick fix to get the account back up and running.
+
+### Adding a Shared Folder for Access 
+
+<img width="600" height="790" alt="13" src="https://github.com/user-attachments/assets/b76c4db3-0414-44b4-86b9-bedda83bd160" />
+
+After I've configured the Drive Maps policy to automatically connect users to a shared folder, I need to make sure the policy is applied to their computers. The image shows me, the administrator, running the gpupdate /force command. This is a crucial step because it forces the client computer to immediately download and apply any new or changed Group Policies—including the one I created for the shared folder. The "Computer Policy update has completed successfully" and "User Policy update has completed successfully" messages confirm that the new settings have been pushed to the machine, which means the shared folder is now available to the users without any further action on their part.
+- I created a "Drive Maps" policy to automatically map a shared folder.
+- The policy is set to map the shared folder located at \\WIN2016\SharedFolder.
+- I ran gpupdate /force to ensure the new Drive Maps policy is applied immediately.
+- The successful messages confirm that the policy has been applied.
+
+### The Shared Folder is now visible to all the users in the admin OU bucket
+
+<img width="600" height="825" alt="14" src="https://github.com/user-attachments/assets/ebed769e-59b4-40a0-8685-98a02fcd7c81" />
+
+As a result of my Drive Maps policy, the shared folder is now automatically visible under Network locations in File Explorer. It's ready to go.
 
