@@ -102,3 +102,16 @@ After I've configured the Drive Maps policy to automatically connect users to a 
 
 As a result of my Drive Maps policy, the shared folder is now automatically visible under Network locations in File Explorer. It's ready to go.
 
+### Access to Control Panel is blocked by the Administrator using a Group Policy Enforcement 
+<img width="600" height="826" alt="15" src="https://github.com/user-attachments/assets/c21e3d7f-89cf-4ab1-b1c1-e555417d29a5" />
+
+In modern Windows environments, administrators often need to enforce restrictions, ensuring users cannot access critical system settings or make unauthorized changes.
+- This Group Policy setting blocks access to the Control Panel and PC settings entirely.
+- When enabled, users cannot open Control.exe or SystemSettings.exe, effectively stopping Control Panel and Settings from launching.
+- It removes Control Panel from the Start screen and File Explorer.
+- It hides PC settings from the Start screen, Settings charm, account picture options, and search results.
+- If users attempt access, they see a message explaining the restriction, preventing any changes.
+
+### Sucessfull implementation 
+
+<img width="600" height="823" alt="16" src="https://github.com/user-attachments/assets/ed268604-33cc-4830-a38b-b339f90cc8d1" />
